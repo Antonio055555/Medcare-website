@@ -23,26 +23,10 @@
         height: 100%;
         object-fit: contain;
     }
-    #message {
-        position: absolute;
-        top: 25%; /* moved higher */
-        width: 100%;
-        text-align: center;
-        font-size: 2em;
-        color: white;
-        font-family: Arial, sans-serif;
-        opacity: 0;
-        transition: opacity 1s ease;
-        z-index: 10;
-    }
-    #message.show {
-        opacity: 1;
-    }
 </style>
 </head>
 <body>
     <div id="viewer">
-        <div id="message">Thank you for choosing MedCare.</div>
         <img id="slideshow" src="images/page_1.jpg">
     </div>
    <script>
