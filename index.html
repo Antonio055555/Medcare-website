@@ -44,13 +44,6 @@
     const slideshow = document.getElementById("slideshow");
     const message = document.getElementById("message");
 
-    // Fade in + fade out the message for 2 seconds
-    window.onload = function () {
-        message.classList.add("show");
-        setTimeout(() => {
-            message.classList.remove("show");
-        }, 2000); // 2 seconds
-    };
 
     // Tap to navigate images
     document.body.addEventListener("click", function(event) {
