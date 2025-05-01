@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MedCare Prototype</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            height: 100%;
+            overflow: hidden;
+        }
+        #viewer {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        #message {
+            position: absolute;
+            top: 40%;
+            width: 100%;
+            text-align: center;
+            font-size: 2em;
+            color: white;
+            font-family: Arial, sans-serif;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="viewer">
+        <div id="message">Thank you for choosing MedCare.</div>
+        <img id="slideshow" src="images/page_1.jpg">
+    </div>
+    <script>
+        const images = [
+            "images/page_1.jpg",
+            "images/page_2.jpg",
+            "images/page_3.jpg",
+            "images/page_4.jpg",
+            "images/page_5.jpg",
+            "images/page_6.jpg",
+            "images/page_7.jpg",
+            "images/page_8.jpg"
+        ];
+        let currentIndex = 0;
+        const slideshow = document.getElementById("slideshow");
+        const message = document.getElementById("message");
+
+        // Display welcome message for 3 seconds
+        window.onload = function () {
+            message.style.display = "block";
+            setTimeout(() => { message.style.display = "none"; }, 3000);
+        };
+
+        // Navigation by tapping screen
+        document.body.addEventListener("click", function(event) {
+            const x = event.clientX;
+            const width = window.innerWidth;
+            if (x > width / 2) {
+                currentIndex = Math.min(images.length - 1, currentIndex + 1);
+            } else {
+                currentIndex = Math.max(0, currentIndex - 1);
+            }
+            slideshow.src = images[currentIndex];
+        });
+    </script>
+</body>
+</html>
